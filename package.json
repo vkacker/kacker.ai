@@ -1,0 +1,9 @@
+{
+  "homepage": "https://kacker.ai",   
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  }
+}
