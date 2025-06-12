@@ -1,0 +1,44 @@
+name: Deploy Vite site to GitHub Pages
+
+# ① When it should run
+on:
+  push:
+    branches: [main]        # every merge to main auto-deploys
+  workflow_dispatch:        # manual “Run workflow” button
+
+# ② Required permissions for the deploy job
+permissions:
+  contents: read
+  pages: write
+  id-token: write           # OIDC auth for Pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4     # pick any LTS you like
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci                    # install
+      - run: npm run build             # → dist/
+
+      # ③ Package the static files as a Pages artifact
+      - name: Upload build output
+        uses: actions/upload-pages-artifact@v3   # official composite action
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build                       # wait for build job
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages               # required; created automatically
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
