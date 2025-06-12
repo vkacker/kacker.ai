@@ -1,9 +1,17 @@
 {
-  "homepage": "https://kacker.ai",   
+  "homepage": "https://kacker.ai",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7"
   }
 }
