@@ -1,14 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-    <script type="module" crossorigin src="/assets/index-Bu2KLjsa.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dtn62Xmo.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viraj Kacker</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Merriweather', 'serif'],
+          },
+          colors: {
+            crimson: {
+              50: '#fdf2f2',
+              100: '#fde8e8',
+              600: '#e11d48', // Approximation of Alabama Crimson
+              700: '#be123c',
+              900: '#881337',
+            },
+            'gt-gold': '#B3A369', // Georgia Tech Gold approximation
+            'gt-navy': '#003057', // Georgia Tech Navy
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-3Z3Ltvre.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-tn0RQdqM.css">
+</head>
+
+<body class="bg-stone-50 text-stone-900 antialiased selection:bg-crimson-100 selection:text-crimson-900">
+  <div id="root"></div>
+</body>
+
 </html>
