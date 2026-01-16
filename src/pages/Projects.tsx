@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
-import { ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, ChevronUp } from '@carbon/icons-react';
 
 interface ProjectsProps {
   previewMode?: boolean;
@@ -34,7 +34,7 @@ const Projects: React.FC<ProjectsProps> = ({ previewMode = false }) => {
                 </span>
                 {project.link || project.github ? (
                   <a 
-                    href={project.link || project.github} 
+                    href={project.link ?? project.github ?? ''} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -44,16 +44,16 @@ const Projects: React.FC<ProjectsProps> = ({ previewMode = false }) => {
                 ) : null}
               </div>
               
-              <div className="flex gap-2 items-center">
-                {project.technologies.slice(0, 3).map(tech => (
-                   <span key={tech} className="text-xs text-stone-400 font-mono bg-stone-50 px-1.5 py-0.5 rounded">{tech}</span>
-                ))}
-                {!previewMode && (
-                  <div className="text-stone-300 ml-2">
-                    {expandedId === project.id ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                  </div>
-                )}
-              </div>
+                <div className="flex gap-2 items-center">
+                  {project.technologies.map(tech => (
+                    <span key={tech} className="text-xs text-stone-400 font-mono bg-stone-50 px-1.5 py-0.5 rounded">{tech}</span>
+                  ))}
+                  {!previewMode && (
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-500 ml-2 hover:bg-stone-200 transition-colors">
+                      {expandedId === project.id ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </div>
+                  )}
+                </div>
             </div>
             
             <p className="text-sm text-stone-600 leading-relaxed max-w-xl">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { getAllPosts, getPostBySlug } from '../lib/writings';
 import type { WritingPost, WritingPostPreview } from '../lib/writings';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from '@carbon/icons-react';
 
 interface WritingProps {
   previewMode?: boolean;
@@ -46,7 +46,7 @@ const Writing: React.FC<WritingProps> = ({ previewMode = false }) => {
       <section className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <h2 className="text-sm font-bold text-stone-900 uppercase tracking-wider flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-stone-300"></span>
+<span className="w-2 h-2 rounded-full bg-red-200 animate-pulse"></span>
             {previewMode ? 'Recent Writing' : 'Writing'}
           </h2>
         </div>
@@ -120,32 +120,36 @@ const Writing: React.FC<WritingProps> = ({ previewMode = false }) => {
       </div>
 
       <div className="grid gap-1">
-        {displayPosts.map((post) => (
-          <div 
-            key={post.slug} 
-            className="group flex flex-col sm:flex-row sm:items-baseline justify-between py-2.5 sm:py-2 hover:bg-stone-50 -mx-3 px-3 rounded-lg transition-colors cursor-pointer"
-            onClick={() => handlePostClick(post.slug)}
-          >
-            <div className="flex items-center gap-3">
-              <span className="text-stone-800 font-medium group-hover:text-crimson-700 transition-colors">
-                {post.title}
-              </span>
-              {!previewMode && (
-                <span className={`text-[10px] px-1.5 py-0.5 rounded border ${
-                  post.category === 'Essay' ? 'bg-indigo-50 border-indigo-100 text-indigo-700' :
-                  post.category === 'Note' ? 'bg-amber-50 border-amber-100 text-amber-700' :
-                  'bg-emerald-50 border-emerald-100 text-emerald-700'
-                }`}>
-                  {post.category}
+        {displayPosts.length === 0 ? (
+          <p className="py-8 text-sm text-stone-500">I promise in {new Date().getFullYear()} there will be actual things to read</p>
+        ) : (
+          displayPosts.map((post) => (
+            <div 
+              key={post.slug} 
+              className="group flex flex-col sm:flex-row sm:items-baseline justify-between py-2.5 sm:py-2 hover:bg-stone-50 -mx-3 px-3 rounded-lg transition-colors cursor-pointer"
+              onClick={() => handlePostClick(post.slug)}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-stone-800 font-medium group-hover:text-crimson-700 transition-colors">
+                  {post.title}
                 </span>
-              )}
+                {!previewMode && (
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded border ${
+                    post.category === 'Essay' ? 'bg-indigo-50 border-indigo-100 text-indigo-700' :
+                    post.category === 'Note' ? 'bg-amber-50 border-amber-100 text-amber-700' :
+                    'bg-emerald-50 border-emerald-100 text-emerald-700'
+                  }`}>
+                    {post.category}
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center gap-3 shrink-0">
+                 <span className="hidden sm:inline-block h-px w-8 bg-stone-200"></span>
+                 <span className="text-xs font-mono text-stone-400 group-hover:text-stone-500">{post.date}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-3 shrink-0">
-               <span className="hidden sm:inline-block h-px w-8 bg-stone-200"></span>
-               <span className="text-xs font-mono text-stone-400 group-hover:text-stone-500">{post.date}</span>
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       
       {previewMode && (

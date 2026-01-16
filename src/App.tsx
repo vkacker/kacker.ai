@@ -58,7 +58,7 @@ const App: React.FC = () => {
         {/* Simple Footer */}
         <footer className="pt-12 border-t border-stone-200/60 flex justify-between items-center text-xs text-stone-400 font-mono">
           <span>© {new Date().getFullYear()}</span>
-          <span>SF / AL / GT</span>
+          <span>SF</span>
         </footer>
 
       </main>

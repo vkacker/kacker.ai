@@ -1,6 +1,7 @@
 import React from 'react';
-import { INTRO_HEADLINE, INTRO_SUBTEXT, SOCIAL_LINKS } from '../constants';
-import { MessageCircle } from 'lucide-react';
+import { INTRO_HEADLINE, SOCIAL_LINKS, PROFESSIONAL_INTERESTS, PERSONAL_INTERESTS } from '../constants';
+import { Chat } from '@carbon/icons-react';
+import InterestLine from './InterestLine';
 
 const Hero: React.FC = () => {
   return (
@@ -12,9 +13,8 @@ const Hero: React.FC = () => {
         <p className="text-lg font-medium text-stone-800">
           {INTRO_HEADLINE}
         </p>
-        <p className="text-stone-500 text-sm leading-relaxed max-w-lg">
-          {INTRO_SUBTEXT}
-        </p>
+        <InterestLine title="Professional Interests" interests={PROFESSIONAL_INTERESTS} />
+        <InterestLine title="Personal Interests" interests={PERSONAL_INTERESTS} />
       </div>
 
       <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
         ))}
         <div className="h-4 w-px bg-stone-200 mx-1"></div>
         <a href="mailto:hello@example.com" className="text-sm font-medium text-crimson-600 hover:text-crimson-700 flex items-center gap-1.5 transition-colors">
-          <MessageCircle className="w-4 h-4" />
+          <Chat className="w-4 h-4" />
           Always down to chat
         </a>
       </div>

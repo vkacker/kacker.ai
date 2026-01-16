@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "title": "Protogen",
+    "description": "A CLI-first AI agent for biotech, enabling rapid protein discovery through large-scale protein folding simulation.",
+    "longDescription": "Built an AI agent for fast, abundant protein discovery with few friends at the YC MCP Hackathon. We would have a user input the protein string they are interested in, then the agent would use MCP servers to connect to scientific literature and ESMFold API to run folding experiments and continue to iterate till it got a good binding coefficient. The agent would then return the protein string with the highest binding coefficient. Fun fact: We leaned into the CLI design after I Cursor'd too hard, broke our protein visualizer, and ran out of credits.",
+    "technologies": [
+      "Python",
+      "MCP",
+      "ESMFold API"
+    ],
+    "link": "https://devpost.com/software/protogen-r056us?ref_content=my-projects-tab&ref_feature=my_projects"
+  }
+]

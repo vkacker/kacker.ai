@@ -45,6 +45,47 @@
       scrollbar-width: none;
       /* Firefox */
     }
+
+    /* Hover Card Tooltip Styles */
+    .hover-card {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .hover-card-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 8px;
+      width: 240px;
+      padding: 12px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.15), 0 2px 10px -2px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      z-index: 50;
+    }
+
+    .hover-card-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: white;
+    }
+
+    .group:hover .hover-card-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-2px);
+    }
   </style>
 </head>
 
