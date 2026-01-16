@@ -21,7 +21,7 @@ export const PERSONAL_INTERESTS = [
 
 export const SOCIAL_LINKS = [
   { label: 'X', url: 'https://x.com/vvtechh', icon: <XIcon /> },
-  { label: 'GitHub', url: 'https://github.com/viraj', icon: <LogoGithub className="w-4 h-4" /> },
+  { label: 'GitHub', url: 'https://github.com/vkacker', icon: <LogoGithub className="w-4 h-4" /> },
   { label: 'LinkedIn', url: 'https://linkedin.com/in/viraj-kacker', icon: <LogoLinkedin className="w-4 h-4" /> },
   { label: 'Email', url: 'mailto:vkack28@gmail.com', icon: <Email className="w-4 h-4" /> },
 ];
