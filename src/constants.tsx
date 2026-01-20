@@ -9,7 +9,7 @@ export const INTRO_HEADLINE = "SWE at House Rx. Georgia Tech Grad. Alabama Born 
 export const PROFESSIONAL_INTERESTS = [
   { id: 'amdyn', name: 'American Dynamism', description: 'This country has given my family everything. I want to spend my career focused on giving everything I can for this country.' },
   { id: 'aiai', name: 'Applied AI', description: 'AI is transformative, and I love to figure out how to apply it in various domains.' },
-  { id: 'biotech', name: 'Biotech', description: '[Add your biotech description here]' },
+  { id: 'biotech', name: 'Biotech', description: 'Biotech is an industry where advancements can directly impact someone personally, aka their health.' },
   { id: 'aviation', name: 'Aviation', description: "My dream job as a kid was a pilot. Though that's not my current job, I never have peeled an eye away from the sky." },
 ];
 

@@ -8,6 +8,20 @@ interface WritingProps {
   previewMode?: boolean;
 }
 
+const LinkRenderer = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+  const { href, children } = props;
+  const isExternal = href?.startsWith('http://') || href?.startsWith('https://');
+  return (
+    <a
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+    >
+      {children}
+    </a>
+  );
+};
+
 const Writing: React.FC<WritingProps> = ({ previewMode = false }) => {
   const [filter, setFilter] = useState<'All' | 'Note' | 'Thought' | 'Essay'>('All');
   const [view, setView] = useState<'list' | 'detail'>('list');
@@ -85,7 +99,7 @@ const Writing: React.FC<WritingProps> = ({ previewMode = false }) => {
             <span className="font-mono">{selectedPost.date}</span>
           </div>
           <div className="prose prose-stone prose-sm max-w-none prose-headings:font-serif prose-headings:text-stone-900 prose-p:text-stone-700 prose-a:text-crimson-700 prose-a:no-underline hover:prose-a:underline prose-blockquote:border-l-crimson-700 prose-blockquote:italic prose-code:text-indigo-600 prose-code:bg-indigo-50 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-code:before:content-none prose-code:after:content-none prose-pre:bg-stone-900 prose-pre:text-stone-100 prose-li:text-stone-700">
-            <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
+            <ReactMarkdown components={{ a: LinkRenderer }}>{selectedPost.content}</ReactMarkdown>
           </div>
         </article>
       </section>
