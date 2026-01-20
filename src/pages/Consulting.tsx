@@ -37,15 +37,25 @@ const Consulting: React.FC = () => {
         ))}
       </div>
       
-      <div className="bg-stone-100 p-5 rounded-xl text-center">
+        <div className="bg-stone-100 p-5 rounded-xl text-center">
         <h3 className="font-bold text-stone-900 mb-1">Have a project in mind?</h3>
         <p className="text-xs text-stone-600 mb-3">Let's chat about feasibility and timeline.</p>
-        <a 
-          href="mailto:vkack28@gmail.com" 
-          className="inline-block bg-stone-900 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-stone-800 transition-colors"
-        >
-          Email Me
-        </a>
+        <div className="flex flex-wrap justify-center gap-3">
+          <a 
+            href="https://cal.com/virajkacker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-stone-900 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-stone-800 transition-colors"
+          >
+            Schedule a Chat
+          </a>
+          <a 
+            href="mailto:vkack28@gmail.com" 
+            className="inline-block bg-white border border-stone-200 text-stone-900 px-5 py-2 rounded-lg text-sm font-medium hover:bg-stone-50 transition-colors"
+          >
+            Email Me
+          </a>
+        </div>
       </div>
     </section>
   );
